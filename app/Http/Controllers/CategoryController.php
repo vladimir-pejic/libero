@@ -14,8 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Category::all()->toArray());
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -35,7 +36,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json(['status' => true, 'message' => 'Category Created']);
     }
 
     /**
@@ -80,6 +81,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        return response()->json(['status' => true, 'message' => 'Category Deleted']);
     }
 }
