@@ -22,6 +22,6 @@ Route::post('register', 'UserController@register');
 
 Route::group(['middleware' => 'auth:api'], function(){
     Route::get('/category/{category}/tasks', 'CategoryController@tasks');
-    Route::resource('/task', 'TasksController');
+    Route::resource('/task', 'TaskController');
     Route::resource('/category', 'CategoryController');
 });

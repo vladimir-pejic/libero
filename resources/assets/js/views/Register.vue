@@ -80,15 +80,17 @@
 
                 if (this.password === this.password_confirmation && this.password.length > 0)
                 {
-                    axios.post('api/register', {
+                    let user = {
                         first_name: this.first_name,
                         last_name: this.last_name,
                         email: this.email,
                         password: this.password,
                         c_password : this.password_confirmation
-                    })
+                    };
+                    axios.post('api/register', user)
                         .then(response => {
-                            localStorage.setItem('user',response.data.success.first_name)
+                            console.log(response.data)
+                            localStorage.setItem('user',response.data.success.name)
                             localStorage.setItem('jwt',response.data.success.token)
 
                             if (localStorage.getItem('jwt') != null){

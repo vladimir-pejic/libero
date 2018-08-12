@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
 
-            <draggable element="div" class="col-md-12" v-model="categories" :options="dragOptions">
+            <div class="col-md-12" v-model="categories">
                 <transition-group class="row">
                     <div class="col-md-4" v-for="element,index in categories" :key="element.id">
                         <div class="card">
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </transition-group>
-            </draggable>
+            </div>
         </div>
     </div>
 </template>
@@ -75,7 +75,7 @@
 
                 if (order !== false) {
                     axios.patch(`api/task/${task_id}`, {order, category_id}).then(response => {
-                        // Do anything you want here
+                        //
                     });
                 }
             },
@@ -84,7 +84,7 @@
                 this.editingTask = null
 
                 axios.patch(`api/task/${task.id}`, {name: task.name}).then(response => {
-                    // You can do anything you wan't here.
+                    //
                 })
             },
 

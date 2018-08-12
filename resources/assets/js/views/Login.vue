@@ -58,7 +58,7 @@
                     })
                         .then(response => {
                             console.log(response)
-                            localStorage.setItem('user',response.data.success.first_name)
+                            localStorage.setItem('user',response.data.success.name)
                             localStorage.setItem('jwt',response.data.success.token)
 
                             if (localStorage.getItem('jwt') != null){
