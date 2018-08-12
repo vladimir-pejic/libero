@@ -20,7 +20,11 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "date-fns": "^1.29.0",
+        "pusher-js": "^4.2.2",
+        "vue-fullcalendar": "^1.0.9",
         "vue-router": "^3.0.1",
-        "vuedraggable": "^2.16.0"
+        "vuedraggable": "^2.16.0",
+        "vuejs-datepicker": "^1.5.2"
     }
 }
