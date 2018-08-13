@@ -20,8 +20,12 @@ class UserController extends Controller
         ];
 
         if (Auth::attempt($credentials)) {
-            $success['token'] = Auth::user()->createToken('MyApp')->accessToken;
-
+            try {
+                $success['token'] = Auth::user()->createToken('MyApp')->accessToken;
+                $success['name'] = Auth::user()->first_name . ' ' . Auth::user()->last_name;
+            } catch(\Exception $e) {
+                return response()->json(['error' => $e->getMessage()]);
+            }
             return response()->json(['success' => $success]);
         }
 
@@ -56,6 +60,14 @@ class UserController extends Controller
 
 
         return response()->json(['success' => $success]);
+    }
+
+
+    public function logout()
+    {
+        if (Auth::check()) {
+            Auth::user()->accessToken->delete();
+        }
     }
 
 
